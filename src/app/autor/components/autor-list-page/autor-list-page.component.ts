@@ -9,7 +9,7 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './autor-list-page.component.html',
 })
 export class AutorListPageComponent implements OnInit {
-  autores$: AutorInterface[] = [];
+  autores: AutorInterface[] = [];
   subscriptions = new Subscription();
 
   constructor(
@@ -40,7 +40,11 @@ export class AutorListPageComponent implements OnInit {
         {
           text: 'Sim',
           handler: () => {
-            this.autorService.remove(autor).subscribe();
+            this.subscriptions.add(
+              this.autorService.remove(autor).subscribe(() => {
+                this.listar();
+              })
+            );
           },
         },
         'Não',

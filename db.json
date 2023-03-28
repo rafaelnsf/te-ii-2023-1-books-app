@@ -1,18 +1,6 @@
 {
   "autores": [
     {
-      "id": 1,
-      "nome": "Martin Fowler",
-      "dataNascimento": "1963-12-18",
-      "genero": "M"
-    },
-    {
-      "id": 2,
-      "nome": "Robert C. Martin",
-      "dataNascimento": "1967-12-18",
-      "genero": "M"
-    },
-    {
       "id": 3,
       "nome": "Eric Evans",
       "dataNascimento": "1969-12-18",
