@@ -1,16 +1,29 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-button slot="start">
-      <ion-menu-button> </ion-menu-button>
-    </ion-button>
-    <ion-title>Lista de Autores</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title> Lista de autores </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-list *ngIf="autores$ | async as autores">
     <ion-item *ngFor="let autor of autores">
-      {{ autor.nome }}
+      <ion-label>
+        {{ autor.nome }}
+      </ion-label>
+      <ion-icon
+        name="create"
+        slot="end"
+        [routerLink]="['../edicao', autor.id]"
+      ></ion-icon>
+      <ion-icon name="trash" slot="end" (click)="remove(autor)"></ion-icon>
     </ion-item>
   </ion-list>
+  <ion-fab horizontal="end" vertical="bottom">
+    <ion-fab-button [routerLink]="['../cadastro']">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

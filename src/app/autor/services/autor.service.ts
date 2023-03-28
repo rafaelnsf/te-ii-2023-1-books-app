@@ -12,4 +12,9 @@ export class AutorService {
       `${environment.apiUrl}/autores`
     );
   }
+  remove(autor: AutorInterface): Observable<void> {
+    return this.httpClient.delete<void>(
+      `${environment.apiUrl}/autores${autor.id}`
+    );
+  }
 }
